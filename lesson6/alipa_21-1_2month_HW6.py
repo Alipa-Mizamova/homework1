@@ -8,5 +8,19 @@ class Solution:
     """
 
     def find_target(self, list, target):
-        pass
-  
+        mid = len(list) // 2
+        low = 0
+        high = len(list) - 1
+
+        while list[mid] != target and low <= high:
+            if target > list[mid]:
+                low = mid + 1
+            else:
+                high = mid - 1
+            mid = (low + high) // 2
+
+        if low > high:
+            print("No target")
+        else:
+            print("ID =", mid)
+
